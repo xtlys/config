@@ -1,0 +1,14 @@
+name: Local domain DNS and DIRECT
+desc: Keep photonchord.com and higgsasset.com direct with custom DNS
+
+dns:
+  nameserver-policy:
+    '+.photonchord.com': system
+    '+.higgsasset.com': system
+  fake-ip-filter:
+    - '+.photonchord.com'
+    - '+.higgsasset.com'
+
+rules:
+  - DOMAIN-SUFFIX,photonchord.com,DIRECT
+  - DOMAIN-SUFFIX,higgsasset.com,DIRECT
