@@ -4,12 +4,12 @@ desc: Force photonchord.com and higgsasset.com to use system DNS and DIRECT, avo
 dns:
   enable: true
   enhanced-mode: redir-host
-
   nameserver-policy:
     '+.photonchord.com': system
     '+.higgsasset.com': system
-
   fake-ip-filter:
+    - 'xmake.io'
+    - '+.xmake.io'
     - 'photonchord.com'
     - '+.photonchord.com'
     - 'higgsasset.com'
