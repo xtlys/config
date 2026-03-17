@@ -1,12 +1,18 @@
-name: Local domain DNS and DIRECT
-desc: Keep photonchord.com and higgsasset.com direct with custom DNS
+name: Local Domain DNS Direct Override
+desc: Force photonchord.com and higgsasset.com to use system DNS and DIRECT, avoid fake-ip issues for xmake.io
 
 dns:
+  enable: true
+  enhanced-mode: redir-host
+
   nameserver-policy:
     '+.photonchord.com': system
     '+.higgsasset.com': system
+
   fake-ip-filter:
+    - 'photonchord.com'
     - '+.photonchord.com'
+    - 'higgsasset.com'
     - '+.higgsasset.com'
 
 rules:
