@@ -21,6 +21,14 @@ rules:
   # Cloudflare DDNS IP Probe
   - DOMAIN-SUFFIX,icanhazip.com,DIRECT
   - DOMAIN-SUFFIX,ifconfig.me,DIRECT
+  # Grok / xAI
+  - DOMAIN-SUFFIX,grok.com,TAGSS
+  - DOMAIN-SUFFIX,x.ai,TAGSS
+  # X / Twitter login and embedded Grok dependencies, optional
+  - DOMAIN-SUFFIX,x.com,TAGSS
+  - DOMAIN-SUFFIX,twitter.com,TAGSS
+  - DOMAIN-SUFFIX,twimg.com,TAGSS
+  - DOMAIN-SUFFIX,t.co,TAGSS
   # Hugging Face
   - DOMAIN-SUFFIX,huggingface.co,TAGSS
   - DOMAIN-SUFFIX,hf.co,TAGSS
