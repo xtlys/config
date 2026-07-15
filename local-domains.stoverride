@@ -15,6 +15,12 @@ dns:
     - 'higgsasset.com'
     - '+.higgsasset.com'
 
+proxy-groups:
+  - name: TAGSS
+    type: select
+    proxies:
+      - '🙂 TAGSS'
+
 rules:
   - DOMAIN-SUFFIX,photonchord.com,DIRECT
   - DOMAIN-SUFFIX,higgsasset.com,DIRECT
