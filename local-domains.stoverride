@@ -22,6 +22,10 @@ proxy-groups:
       - '🙂 TAGSS'
 
 rules:
+  # Tailscale addresses. These must precede the subscription rule that sends 100.64.0.0/10 direct.
+  - DOMAIN-SUFFIX,ts.net,Tailscale
+  - IP-CIDR,100.64.0.0/10,Tailscale,no-resolve
+  - IP-CIDR6,fd7a:115c:a1e0::/48,Tailscale,no-resolve
   - DOMAIN-SUFFIX,photonchord.com,DIRECT
   - DOMAIN-SUFFIX,higgsasset.com,DIRECT
   # Cloudflare DDNS IP Probe
