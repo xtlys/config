@@ -1,0 +1,48 @@
+name: Local Domain DNS Direct Override (Mac)
+desc: Mac copy of the local-domain override. Tailscale addresses stay on the system route for the official Tailscale client.
+
+dns:
+  enable: true
+  enhanced-mode: redir-host
+  nameserver-policy:
+    '+.photonchord.com': system
+    '+.higgsasset.com': system
+  fake-ip-filter:
+    - 'xmake.io'
+    - '+.xmake.io'
+    - 'photonchord.com'
+    - '+.photonchord.com'
+    - 'higgsasset.com'
+    - '+.higgsasset.com'
+
+proxy-groups:
+  - name: TAGSS
+    type: select
+    proxies:
+      - '🙂 TAGSS'
+
+rules:
+  - DOMAIN-SUFFIX,photonchord.com,DIRECT
+  - DOMAIN-SUFFIX,higgsasset.com,DIRECT
+  # Cloudflare DDNS IP Probe
+  - DOMAIN-SUFFIX,icanhazip.com,DIRECT
+  - DOMAIN-SUFFIX,ifconfig.me,DIRECT
+  # Grok / xAI
+  - DOMAIN-SUFFIX,grok.com,TAGSS
+  - DOMAIN-SUFFIX,x.ai,TAGSS
+  # X / Twitter login and embedded Grok dependencies, optional
+  - DOMAIN-SUFFIX,x.com,TAGSS
+  - DOMAIN-SUFFIX,twitter.com,TAGSS
+  - DOMAIN-SUFFIX,twimg.com,TAGSS
+  - DOMAIN-SUFFIX,t.co,TAGSS
+  # Hugging Face
+  - DOMAIN-SUFFIX,huggingface.co,TAGSS
+  - DOMAIN-SUFFIX,hf.co,TAGSS
+  - DOMAIN-SUFFIX,huggingfaceusercontent.com,TAGSS
+  # npm registry and tarballs. 漏网之鱼 is DIRECT, so these must be explicit.
+  - DOMAIN-SUFFIX,npmjs.org,TAGSS
+  - DOMAIN-SUFFIX,npmjs.com,TAGSS
+  # node-gyp headers, Yarn, GitHub Packages
+  - DOMAIN-SUFFIX,nodejs.org,TAGSS
+  - DOMAIN-SUFFIX,yarnpkg.com,TAGSS
+  - DOMAIN,npm.pkg.github.com,TAGSS
