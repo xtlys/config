@@ -30,6 +30,9 @@ rules:
   # Grok / xAI
   - DOMAIN-SUFFIX,grok.com,TAGSS
   - DOMAIN-SUFFIX,x.ai,TAGSS
+  # Meta
+  - DOMAIN-SUFFIX,meta.ai,TAGSS
+  - DOMAIN-SUFFIX,meta.com,TAGSS
   # X / Twitter login and embedded Grok dependencies, optional
   - DOMAIN-SUFFIX,x.com,TAGSS
   - DOMAIN-SUFFIX,twitter.com,TAGSS
